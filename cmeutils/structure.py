@@ -65,6 +65,8 @@ def gsd_rdf(
                 np.max(snap.configuration.box[:3]) * 0.5, 0, dtype=np.float32
             )
 
+        if r_max > 5.0:
+            r_max=5 
         rdf = freud.density.RDF(bins=bins, r_max=r_max, r_min=r_min)
 
         type_A = snap.particles.typeid == snap.particles.types.index(A_name)
